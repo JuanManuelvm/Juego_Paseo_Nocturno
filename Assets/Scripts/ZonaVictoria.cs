@@ -6,8 +6,11 @@ public class ZonaVictoria : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("¡Llegaste a salvo a casa!");
-            // Aquí puedes activar un panel UI con el texto "Llegaste a salvo" o cargar la escena de créditos
+            // Llama directamente al panel de Victoria
+            if (ControlJuegoUI.Instance != null)
+            {
+                ControlJuegoUI.Instance.MostrarVictoria();
+            }
         }
     }
 }
