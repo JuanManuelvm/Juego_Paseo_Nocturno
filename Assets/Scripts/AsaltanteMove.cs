@@ -5,16 +5,21 @@ public class EnemigoIAAvanzado : MonoBehaviour
 {
     [Header("Referencias")]
     public Transform jugador;
-    public LayerMask capaObstaculos; // Para que las paredes tapen la vista
+    public LayerMask capaObstaculos;
     public LayerMask capaJugador;
 
     [Header("Campo de Visión (FOV)")]
-    public float rangoDeteccion = 12f;  // Distancia máxima de visión
-    public float anguloVision = 110f;   // Cono de visión en grados (ej. 110°)
+    public float rangoDeteccion = 12f;
+    public float anguloVision = 110f;
 
     [Header("Ataque")]
     public float distanciaAtaque = 2f;
     private bool yaAtaco = false;
+
+    [Header("Audio del Enemigo")]
+    public AudioSource audioSource;
+    public AudioClip sonidoPasos;
+    public AudioClip sonidoAtaque;
 
     private NavMeshAgent agente;
     private Animator animator;
@@ -23,6 +28,12 @@ public class EnemigoIAAvanzado : MonoBehaviour
     {
         agente = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+
+        // Si no se asignó manualmente, buscar el AudioSource en este mismo objeto
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
     }
 
     void Update()
@@ -31,48 +42,68 @@ public class EnemigoIAAvanzado : MonoBehaviour
 
         float distanciaAlJugador = Vector3.Distance(transform.position, jugador.position);
 
-        // 1. Si está lo suficientemente cerca para golpear
         if (distanciaAlJugador <= distanciaAtaque)
         {
             AtacarJugador();
         }
-        // 2. Si el jugador está dentro del campo de visión
         else if (ViendoAlJugador(distanciaAlJugador))
         {
             PerseguirJugador();
         }
-        // 3. Si perdió de vista al jugador
         else
         {
             QuedarseEnEspera();
         }
 
-        // Actualizar la animación de movimiento basada en la velocidad real del agente
-        if (animator != null)
+        // Actualizar parámetros de animación
+        if (animator != null && animator.runtimeAnimatorController != null)
         {
             animator.SetFloat("Velocidad", agente.velocity.magnitude);
+        }
+
+        // Control del sonido de pasos según si se está moviendo o no
+        GestionarSonidoPasos();
+    }
+
+    void GestionarSonidoPasos()
+    {
+        if (audioSource == null || sonidoPasos == null || yaAtaco) return;
+
+        // Si el enemigo se está moviendo rápido y no está reproduciendo los pasos
+        if (agente.velocity.magnitude > 0.5f && !agente.isStopped)
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.clip = sonidoPasos;
+                audioSource.loop = true; // Repetir el bucle de pasos
+                audioSource.Play();
+            }
+        }
+        else
+        {
+            // Si se detiene, pausar el sonido de pasos
+            if (audioSource.isPlaying && audioSource.clip == sonidoPasos)
+            {
+                audioSource.Stop();
+            }
         }
     }
 
     bool ViendoAlJugador(float distancia)
     {
-        // Verificar si está dentro del rango máximo de visión
         if (distancia > rangoDeteccion) return false;
 
-        // Calcular el ángulo entre la mirada del enemigo y la posición del jugador
         Vector3 direccionHaciaJugador = (jugador.position - transform.position).normalized;
         float angulo = Vector3.Angle(transform.forward, direccionHaciaJugador);
 
-        // Si está dentro del cono de visión
         if (angulo < anguloVision / 2f)
         {
-            // Lanzar un Raycast para comprobar si hay paredes interponiéndose
             RaycastHit hit;
             if (Physics.Raycast(transform.position + Vector3.up, direccionHaciaJugador, out hit, rangoDeteccion))
             {
                 if (hit.transform.CompareTag("Player"))
                 {
-                    return true; // ¡Jugador detectado sin obstáculos!
+                    return true;
                 }
             }
         }
@@ -87,13 +118,21 @@ public class EnemigoIAAvanzado : MonoBehaviour
             agente.isStopped = false;
             agente.SetDestination(jugador.position);
         }
+        if (MusicaAmbiente.Instance != null)
+        {
+            MusicaAmbiente.Instance.SetEstadoPersecucion(true);
+        }
     }
 
     void QuedarseEnEspera()
     {
         if (agente.isOnNavMesh)
         {
-            agente.isStopped = true; // Se detiene y vuelve a Idle
+            agente.isStopped = true;
+        }
+        if (MusicaAmbiente.Instance != null)
+        {
+            MusicaAmbiente.Instance.SetEstadoPersecucion(false);
         }
     }
 
@@ -103,19 +142,30 @@ public class EnemigoIAAvanzado : MonoBehaviour
 
         agente.isStopped = true;
         
-        // Hacer que mire hacia el jugador al golpear
+        // Detener los pasos
+        if (audioSource != null && audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
+
+        // Orientar hacia el jugador
         Vector3 direccion = (jugador.position - transform.position).normalized;
         direccion.y = 0;
         transform.rotation = Quaternion.LookRotation(direccion);
 
+        // Disparar animación
         if (animator != null)
         {
             animator.SetTrigger("Atacar");
         }
 
-        yaAtaco = true;
+        // Reproducir sonido de ataque (un solo disparo)
+        if (audioSource != null && sonidoAtaque != null)
+        {
+            audioSource.PlayOneShot(sonidoAtaque);
+        }
 
-        // Mostrar Game Over tras un breve retraso para sincronizar con la animación de golpe
+        yaAtaco = true;
         Invoke(nameof(DispararGameOver), 0.8f);
     }
 
