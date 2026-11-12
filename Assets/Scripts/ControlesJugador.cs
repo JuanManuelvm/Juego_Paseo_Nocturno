@@ -5,7 +5,8 @@ using UnityEngine.InputSystem;
 public class ControlesJugador : MonoBehaviour
 {
     [Header("Movimiento")]
-    public float velocidad = 5f;
+    public float velocidadCaminando = 5f;
+    public float velocidadCorriendo = 8.5f;
 
     [Header("Cámara y Ratón")]
     public Transform camaraJugador;
@@ -34,11 +35,16 @@ public class ControlesJugador : MonoBehaviour
         {
             animator = GetComponentInChildren<Animator>();
         }
-
+        
+	linternaEncendida = true; 
         if (luzLinterna != null)
         {
             luzLinterna.enabled = linternaEncendida;
         }
+        if (animator != null)
+	{
+	    animator.SetBool("IsFlashlightOn", linternaEncendida);
+	}
     }
 
     private void Update()
@@ -82,18 +88,24 @@ public class ControlesJugador : MonoBehaviour
         Vector3 moveInput = new Vector3(moveX, 0f, moveZ);
         bool estaMoviendose = moveInput.sqrMagnitude > 0.01f;
 
+        // Detectar si presiona Shift (Sprint) solo si se está moviendo hacia adelante o a los lados
+        bool estaCorriendo = estaMoviendose && (keyboard.leftShiftKey.isPressed || keyboard.rightShiftKey.isPressed);
+
         if (moveInput.magnitude > 1f)
         {
             moveInput.Normalize();
         }
 
-        moveInput = transform.TransformDirection(moveInput) * velocidad;
+        // Seleccionar velocidad según si corre o camina
+        float velocidadActual = estaCorriendo ? velocidadCorriendo : velocidadCaminando;
+        moveInput = transform.TransformDirection(moveInput) * velocidadActual;
         characterController.Move(moveInput * Time.deltaTime);
 
         // Enviar parámetros al Animator Controller
         if (animator != null)
         {
-            animator.SetBool("IsWalking", estaMoviendose);
+            animator.SetBool("IsWalking", estaMoviendose && !estaCorriendo);
+            animator.SetBool("IsSprinting", estaCorriendo);
             animator.SetBool("IsFlashlightOn", linternaEncendida);
         }
     }
