@@ -7,6 +7,7 @@ public class ControlesJugador : MonoBehaviour
     [Header("Movimiento")]
     public float velocidadCaminando = 5f;
     public float velocidadCorriendo = 8.5f;
+    public float gravedad = -9.81f;
 
     [Header("Cámara y Ratón")]
     public Transform camaraJugador;
@@ -16,14 +17,22 @@ public class ControlesJugador : MonoBehaviour
     [Header("Linterna y Animaciones")]
     public Light luzLinterna;
     public Animator animator;
-    
+
+    [Header("Audio SFX")]
+    public AudioSource audioSource;
+    public AudioClip sonidoPasosCaminar;
+    public AudioClip sonidoPasosCorrer;
+    public AudioClip sonidoLinterna;
+
     private CharacterController characterController;
     private float rotacionX = 0f;
     private bool linternaEncendida = false;
+    private float velocidadY = 0f;
 
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
+        if (audioSource == null) audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -31,22 +40,13 @@ public class ControlesJugador : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        if (animator == null)
-        {
-            animator = GetComponentInChildren<Animator>();
-        }
-        
-	linternaEncendida = true; 
-        if (luzLinterna != null)
-        {
-            luzLinterna.enabled = linternaEncendida;
-        }
-        if (animator != null)
-	{
-	    animator.SetBool("IsFlashlightOn", linternaEncendida);
-	}
-    }
+        if (animator == null) animator = GetComponentInChildren<Animator>();
 
+        linternaEncendida = true;
+        if (luzLinterna != null) luzLinterna.enabled = linternaEncendida;
+        if (animator != null) animator.SetBool("IsFlashlightOn", linternaEncendida);
+    }
+    
     private void Update()
     {
         Look();
@@ -87,26 +87,56 @@ public class ControlesJugador : MonoBehaviour
 
         Vector3 moveInput = new Vector3(moveX, 0f, moveZ);
         bool estaMoviendose = moveInput.sqrMagnitude > 0.01f;
-
-        // Detectar si presiona Shift (Sprint) solo si se está moviendo hacia adelante o a los lados
         bool estaCorriendo = estaMoviendose && (keyboard.leftShiftKey.isPressed || keyboard.rightShiftKey.isPressed);
 
-        if (moveInput.magnitude > 1f)
-        {
-            moveInput.Normalize();
-        }
+        if (moveInput.magnitude > 1f) moveInput.Normalize();
 
-        // Seleccionar velocidad según si corre o camina
         float velocidadActual = estaCorriendo ? velocidadCorriendo : velocidadCaminando;
-        moveInput = transform.TransformDirection(moveInput) * velocidadActual;
-        characterController.Move(moveInput * Time.deltaTime);
+        Vector3 movimientoHorizontal = transform.TransformDirection(moveInput) * velocidadActual;
 
-        // Enviar parámetros al Animator Controller
+        // Gravedad constante para mantener isGrounded en true
+        if (characterController.isGrounded && velocidadY < 0)
+        {
+            velocidadY = -2f;
+        }
+        velocidadY += gravedad * Time.deltaTime;
+
+        Vector3 movimientoFinal = movimientoHorizontal + new Vector3(0f, velocidadY, 0f);
+        characterController.Move(movimientoFinal * Time.deltaTime);
+
         if (animator != null)
         {
             animator.SetBool("IsWalking", estaMoviendose && !estaCorriendo);
             animator.SetBool("IsSprinting", estaCorriendo);
-            animator.SetBool("IsFlashlightOn", linternaEncendida);
+        }
+
+        // Manejo Directo de Pistas Largas de Audio
+        if (estaMoviendose)
+        {
+            AudioClip clipDeseado = estaCorriendo ? sonidoPasosCorrer : sonidoPasosCaminar;
+            float volumenDeseado = estaCorriendo ? 0.45f : 0.25f;
+
+            if (audioSource != null && clipDeseado != null)
+            {
+                // Si cambió el estado o el audio no está sonando actualmente
+                if (!audioSource.isPlaying || audioSource.clip != clipDeseado)
+                {
+                    audioSource.clip = clipDeseado;
+                    audioSource.volume = volumenDeseado;
+                    audioSource.loop = true;
+                    audioSource.Play();
+                }
+            }
+        }
+        else
+        {
+            // Al detenerse: silenciar la pista larga inmediatamente
+            if (audioSource != null && audioSource.isPlaying && 
+            (audioSource.clip == sonidoPasosCaminar || audioSource.clip == sonidoPasosCorrer))
+            {
+                audioSource.Stop();
+                audioSource.loop = false;
+            }
         }
     }
 
@@ -119,14 +149,14 @@ public class ControlesJugador : MonoBehaviour
         {
             linternaEncendida = !linternaEncendida;
 
-            if (luzLinterna != null)
-            {
-                luzLinterna.enabled = linternaEncendida;
-            }
+            if (luzLinterna != null) luzLinterna.enabled = linternaEncendida;
 
-            if (animator != null)
+            if (animator != null) animator.SetBool("IsFlashlightOn", linternaEncendida);
+
+            // Sonido de clic
+            if (sonidoLinterna != null && audioSource != null)
             {
-                animator.SetBool("IsFlashlightOn", linternaEncendida);
+                audioSource.PlayOneShot(sonidoLinterna);
             }
         }
     }

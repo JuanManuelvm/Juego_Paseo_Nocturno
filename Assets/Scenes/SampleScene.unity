@@ -248,7 +248,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.6627451, b: 0.34117648, a: 1}
   m_Intensity: 5
   m_Range: 10
   m_SpotAngle: 81.49593
@@ -1126,7 +1126,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.6627451, b: 0.34117648, a: 1}
   m_Intensity: 5
   m_Range: 10
   m_SpotAngle: 81.49593
@@ -2183,7 +2183,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ef43ad92e8966d14da23d7593566630c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -36.79205
+      value: -34.33
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ef43ad92e8966d14da23d7593566630c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2191,11 +2191,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ef43ad92e8966d14da23d7593566630c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.206531
+      value: -31.95
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ef43ad92e8966d14da23d7593566630c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6179066
+      value: 0.2404458
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ef43ad92e8966d14da23d7593566630c, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2203,7 +2203,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ef43ad92e8966d14da23d7593566630c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7862516
+      value: -0.9706626
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ef43ad92e8966d14da23d7593566630c, type: 3}
       propertyPath: m_LocalRotation.z
@@ -2215,7 +2215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ef43ad92e8966d14da23d7593566630c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -103.673
+      value: -152.174
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ef43ad92e8966d14da23d7593566630c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -3895,7 +3895,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: de503fd7ae6ec204a91bf13a87ccf6b0, type: 3}
+  m_Resource: {fileID: 8300000, guid: fff49d5097dc5cd489c7dbc4caa27e52, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -5643,7 +5643,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.6627451, b: 0.34117648, a: 1}
   m_Intensity: 5
   m_Range: 10
   m_SpotAngle: 81.49593
@@ -6039,7 +6039,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.6627451, b: 0.34117648, a: 1}
   m_Intensity: 5
   m_Range: 10
   m_SpotAngle: 81.49593
@@ -6894,7 +6894,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.6627451, b: 0.34117648, a: 1}
   m_Intensity: 5
   m_Range: 10
   m_SpotAngle: 81.49593
@@ -7625,7 +7625,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.6627451, b: 0.34117648, a: 1}
   m_Intensity: 5
   m_Range: 10
   m_SpotAngle: 81.49593
@@ -7951,7 +7951,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.6627451, b: 0.34117648, a: 1}
   m_Intensity: 5
   m_Range: 10
   m_SpotAngle: 81.49593
@@ -8410,7 +8410,7 @@ MonoBehaviour:
   distanciaAtaque: 1
   audioSource: {fileID: 1530064202}
   sonidoPasos: {fileID: 8300000, guid: 5180be9e04d8a6b48b7a4a6e5e3a1b57, type: 3}
-  sonidoAtaque: {fileID: 8300000, guid: d33d226623206714b99eb9cd2019e380, type: 3}
+  sonidoAtaque: {fileID: 8300000, guid: 69ecaff86215179438d7beace1de13f7, type: 3}
 --- !u!195 &1530064201
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -8457,7 +8457,7 @@ AudioSource:
   MinDistance: 1
   MaxDistance: 15
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -8466,22 +8466,49 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
+      value: 0.4933319
+      inSlope: -0.4777346
+      outSlope: -0.4777346
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0.9593677
+    - serializedVersion: 3
+      time: 0.15741171
+      value: 0.35333252
+      inSlope: -3.7514992
+      outSlope: -3.7514992
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.27268627
+      value: 0.16555786
+      inSlope: -0.9378748
+      outSlope: -0.9378748
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.53333336
+      value: 0.125
+      inSlope: -0.2344687
+      outSlope: -0.2344687
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
+      value: 0.06666667
+      inSlope: -0.06669331
+      outSlope: -0.06669331
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -8747,7 +8774,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.6627451, b: 0.34117648, a: 1}
   m_Intensity: 5
   m_Range: 10
   m_SpotAngle: 81.49593
@@ -9003,7 +9030,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.6627451, b: 0.34117648, a: 1}
   m_Intensity: 5
   m_Range: 10
   m_SpotAngle: 81.49593
@@ -9397,6 +9424,7 @@ GameObject:
   - component: {fileID: 1733133251}
   - component: {fileID: 1733133250}
   - component: {fileID: 1733133249}
+  - component: {fileID: 1733133252}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -9418,11 +9446,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ControlesJugador
   velocidadCaminando: 5
   velocidadCorriendo: 8.5
+  gravedad: -9.81
   camaraJugador: {fileID: 330585546}
   sensibilidadRaton: 0.1
   limiteVertical: 80
   luzLinterna: {fileID: 0}
   animator: {fileID: 0}
+  audioSource: {fileID: 1733133252}
+  sonidoPasosCaminar: {fileID: 8300000, guid: d7485bafb6dacb24ca9c4a9625aa87d0, type: 3}
+  sonidoPasosCorrer: {fileID: 8300000, guid: 5180be9e04d8a6b48b7a4a6e5e3a1b57, type: 3}
+  sonidoLinterna: {fileID: 8300000, guid: 80029552c78d49544bfffe975f5b59b6, type: 3}
 --- !u!143 &1733133250
 CharacterController:
   m_ObjectHideFlags: 0
@@ -9465,6 +9498,175 @@ Transform:
   - {fileID: 1603861686}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!82 &1733133252
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733133248}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.7022209
+      inSlope: -500.20065
+      outSlope: -500.20065
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.07322531
+      value: 0.48666382
+      inSlope: Infinity
+      outSlope: Infinity
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.122372255
+      value: 0.23666382
+      inSlope: Infinity
+      outSlope: Infinity
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.19959757
+      value: 0.12055969
+      inSlope: Infinity
+      outSlope: Infinity
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.2727837
+      value: 0.058059692
+      inSlope: Infinity
+      outSlope: Infinity
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.3830384
+      value: 0.022354126
+      inSlope: -0.4884772
+      outSlope: -0.4884772
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.4470384
+      value: 0.015625
+      inSlope: -0.1221193
+      outSlope: -0.1221193
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.46969172
+      value: 0.016708374
+      inSlope: -0.030529825
+      outSlope: -0.030529825
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.512
+      value: 0.00390625
+      inSlope: -0.0076324563
+      outSlope: -0.0076324563
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0.002
+      inSlope: -0.002000801
+      outSlope: -0.002000801
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.8844452
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1762785399
 GameObject:
   m_ObjectHideFlags: 0
@@ -9537,7 +9739,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.6627451, b: 0.34117648, a: 1}
   m_Intensity: 5
   m_Range: 10
   m_SpotAngle: 81.49593
@@ -9653,6 +9855,30 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6dcd9074e7412f35ae90d410ebe2aef, type: 3}
+--- !u!1 &1766419800 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1ea0af2103c0ee452ad1f91be1f75653, type: 3}
+  m_PrefabInstance: {fileID: 2068741242}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1766419803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766419800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07284af8c688c694997db6974caf7939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ParpadeoLuz
+  luzLampara: {fileID: 1168940186}
+  intensidadMinima: 0.1
+  intensidadMaxima: 5
+  tiempoMinimo: 1
+  tiempoMaximo: 3
+  tieneFallasLargos: 1
+  probabilidadFalla: 0.15
 --- !u!4 &1783461397 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 960478971922673911, guid: f6dcd9074e7412f35ae90d410ebe2aef, type: 3}
@@ -10292,7 +10518,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.6627451, b: 0.34117648, a: 1}
   m_Intensity: 5
   m_Range: 10
   m_SpotAngle: 81.49593
@@ -10538,7 +10764,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.6627451, b: 0.34117648, a: 1}
   m_Intensity: 5
   m_Range: 10
   m_SpotAngle: 81.49593
@@ -10930,7 +11156,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.6627451, b: 0.34117648, a: 1}
   m_Intensity: 5
   m_Range: 10
   m_SpotAngle: 81.49593
@@ -11056,7 +11282,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1ea0af2103c0ee452ad1f91be1f75653, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1168940184}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1ea0af2103c0ee452ad1f91be1f75653, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1766419803}
   m_SourcePrefab: {fileID: 100100000, guid: 1ea0af2103c0ee452ad1f91be1f75653, type: 3}
 --- !u!4 &2074329550 stripped
 Transform:
