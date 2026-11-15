@@ -7,14 +7,23 @@ public class ControlesJugador : MonoBehaviour
     [Header("Movimiento")]
     public float velocidadCaminando = 5f;
     public float velocidadCorriendo = 8.5f;
+    public float velocidadAgachado = 2.5f;
     public float gravedad = -9.81f;
+
+    [Header("Mecánica de Agachado")]
+    public float alturaDePie = 2.0f;
+    public float alturaAgachado = 1.0f;
+    public float alturaCamaraDePie = 0.8f;
+    public float alturaCamaraAgachado = 0.2f;
+    public float velocidadTransicionAgachado = 10f;
+    private bool estaAgachado = false;
 
     [Header("Sistema de Estamina")]
     public float estaminaMaxima = 100f;
     public float estaminaActual;
-    public float consumoEstamina = 20f;     // Estamina consumida por segundo al correr
-    public float recargaEstamina = 15f;     // Estamina regenerada por segundo al no correr
-    private bool exhausto = false;           // Bloquea la carrera hasta recargar un mínimo
+    public float consumoEstamina = 20f;
+    public float recargaEstamina = 15f;
+    private bool exhausto = false;
 
     [Header("Cámara y Ratón")]
     public Transform camaraJugador;
@@ -27,22 +36,29 @@ public class ControlesJugador : MonoBehaviour
 
     [Header("Audio SFX")]
     public AudioSource audioSource;
-    public AudioSource audioSourceRespiracion; // AudioSource secundario exclusivo para la respiración/cansancio
+    public AudioSource audioSourceRespiracion;
     public AudioClip sonidoPasosCaminar;
     public AudioClip sonidoPasosCorrer;
     public AudioClip sonidoLinterna;
-    public AudioClip sonidoCansado;           // Clip de respiración fatigada en bucle
+    public AudioClip sonidoCansado;
 
     private CharacterController characterController;
     private float rotacionX = 0f;
     private bool linternaEncendida = true;
     private float velocidadY = 0f;
 
+    private Vector3 centroDePie;
+    private Vector3 centroAgachado;
+
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
         if (audioSource == null) audioSource = GetComponent<AudioSource>();
         estaminaActual = estaminaMaxima;
+
+        // Configurar los centros del CharacterController según la altura
+        centroDePie = characterController.center;
+        centroAgachado = new Vector3(centroDePie.x, alturaAgachado / 2f, centroDePie.z);
     }
 
     private void Start()
@@ -55,11 +71,23 @@ public class ControlesJugador : MonoBehaviour
         linternaEncendida = true;
         if (luzLinterna != null) luzLinterna.enabled = linternaEncendida;
         if (animator != null) animator.SetBool("IsFlashlightOn", linternaEncendida);
+
+        // Asentar la cámara exactamente en su altura de pie sin Lerp al iniciar
+        if (camaraJugador != null)
+        {
+            Vector3 posInicial = camaraJugador.localPosition;
+            posInicial.y = alturaCamaraDePie;
+            camaraJugador.localPosition = posInicial;
+        }
+
+        // Forzar asentamiento inicial en el piso para evitar la caída del primer frame
+        velocidadY = -2f;
     }
 
     private void Update()
     {
         Look();
+        HandleCrouch();
         Move();
         HandleFlashlight();
     }
@@ -82,6 +110,36 @@ public class ControlesJugador : MonoBehaviour
         transform.Rotate(Vector3.up * deltaRaton.x);
     }
 
+    private void HandleCrouch()
+    {
+        Keyboard keyboard = Keyboard.current;
+        if (keyboard == null) return;
+
+        if (keyboard.cKey.wasPressedThisFrame || keyboard.leftCtrlKey.wasPressedThisFrame)
+        {
+            estaAgachado = !estaAgachado;
+        }
+
+        float alturaObjetivo = estaAgachado ? alturaAgachado : alturaDePie;
+        Vector3 centroObjetivo = estaAgachado ? centroAgachado : centroDePie;
+
+        characterController.height = Mathf.Lerp(characterController.height, alturaObjetivo, Time.deltaTime * velocidadTransicionAgachado);
+        characterController.center = Vector3.Lerp(characterController.center, centroObjetivo, Time.deltaTime * velocidadTransicionAgachado);
+
+        if (camaraJugador != null)
+        {
+            float alturaCamaraObjetivo = estaAgachado ? alturaCamaraAgachado : alturaCamaraDePie;
+            Vector3 posCamara = camaraJugador.localPosition;
+            
+            // Solo suavizar si hay una diferencia notable de altura (evita micro-caídas de inicio)
+            if (Mathf.Abs(posCamara.y - alturaCamaraObjetivo) > 0.01f)
+            {
+                posCamara.y = Mathf.Lerp(posCamara.y, alturaCamaraObjetivo, Time.deltaTime * velocidadTransicionAgachado);
+                camaraJugador.localPosition = posCamara;
+            }
+        }
+    }
+
     private void Move()
     {
         Keyboard keyboard = Keyboard.current;
@@ -99,20 +157,14 @@ public class ControlesJugador : MonoBehaviour
         bool estaMoviendose = moveInput.sqrMagnitude > 0.01f;
         bool intentaCorrer = keyboard.leftShiftKey.isPressed || keyboard.rightShiftKey.isPressed;
 
-        // Gestión del estado de Agotamiento (Exhausto)
-        if (estaminaActual <= 0f)
-        {
-            exhausto = true;
-        }
-        else if (estaminaActual >= 25f) // Debe recuperar al menos el 25% para volver a correr
-        {
-            exhausto = false;
-        }
+        // Gestión del agotamiento
+        if (estaminaActual <= 0f) exhausto = true;
+        else if (estaminaActual >= 25f) exhausto = false;
 
-        // Solo puede correr si se está moviendo, presiona Shift y NO está exhausto
-        bool estaCorriendo = estaMoviendose && intentaCorrer && !exhausto;
+        // NO se puede correr si se está agachado
+        bool estaCorriendo = estaMoviendose && intentaCorrer && !exhausto && !estaAgachado;
 
-        // Consumo y Regeneración de Estamina
+        // Consumo / Regeneración de Estamina
         if (estaCorriendo)
         {
             estaminaActual -= consumoEstamina * Time.deltaTime;
@@ -127,12 +179,21 @@ public class ControlesJugador : MonoBehaviour
             }
         }
 
-        // Control del sonido de cansancio/respiración agitada
         GestionarSonidoCansancio();
 
         if (moveInput.magnitude > 1f) moveInput.Normalize();
 
-        float velocidadActual = estaCorriendo ? velocidadCorriendo : velocidadCaminando;
+        // Determinar velocidad según estado (Agachado, Corriendo o Caminando)
+        float velocidadActual = velocidadCaminando;
+        if (estaAgachado)
+        {
+            velocidadActual = velocidadAgachado;
+        }
+        else if (estaCorriendo)
+        {
+            velocidadActual = velocidadCorriendo;
+        }
+
         Vector3 movimientoHorizontal = transform.TransformDirection(moveInput) * velocidadActual;
 
         if (characterController.isGrounded && velocidadY < 0)
@@ -144,9 +205,12 @@ public class ControlesJugador : MonoBehaviour
         Vector3 movimientoFinal = movimientoHorizontal + new Vector3(0f, velocidadY, 0f);
         characterController.Move(movimientoFinal * Time.deltaTime);
 
+        // Actualización de parámetros en el Animator
         if (animator != null)
         {
-            animator.SetBool("IsWalking", estaMoviendose && !estaCorriendo);
+            animator.SetBool("IsCrouching", estaAgachado);
+            animator.SetBool("IsWalking", estaMoviendose && !estaCorriendo && !estaAgachado);
+            animator.SetBool("IsCrouchWalking", estaMoviendose && estaAgachado);
             animator.SetBool("IsSprinting", estaCorriendo);
         }
 
@@ -154,7 +218,7 @@ public class ControlesJugador : MonoBehaviour
         if (estaMoviendose && characterController.isGrounded)
         {
             AudioClip clipDeseado = estaCorriendo ? sonidoPasosCorrer : sonidoPasosCaminar;
-            float volumenDeseado = estaCorriendo ? 0.45f : 0.25f;
+            float volumenDeseado = estaAgachado ? 0.15f : (estaCorriendo ? 0.45f : 0.25f);
 
             if (audioSource != null && clipDeseado != null)
             {
@@ -164,6 +228,10 @@ public class ControlesJugador : MonoBehaviour
                     audioSource.volume = volumenDeseado;
                     audioSource.loop = true;
                     audioSource.Play();
+                }
+                else
+                {
+                    audioSource.volume = volumenDeseado;
                 }
             }
         }
@@ -182,7 +250,6 @@ public class ControlesJugador : MonoBehaviour
     {
         if (audioSourceRespiracion == null || sonidoCansado == null) return;
 
-        // Sonar agitado si está exhausto o le queda menos del 30% de estamina
         bool debeSonarCansado = exhausto || (estaminaActual < (estaminaMaxima * 0.3f));
 
         if (debeSonarCansado)

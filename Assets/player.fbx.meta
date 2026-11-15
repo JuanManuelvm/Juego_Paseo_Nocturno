@@ -62,8 +62,8 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|caminar
-      takeName: Armature|caminar
+      name: Armature|Armature|caminar
+      takeName: Armature|Armature|caminar
       internalID: -4572650651892053679
       firstFrame: 0
       lastFrame: 24
@@ -91,8 +91,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|CaminarConLuz
-      takeName: Armature|CaminarConLuz
+      name: Armature|Armature|CaminarConLuz
+      takeName: Armature|Armature|CaminarConLuz
       internalID: 1930374127952063625
       firstFrame: 0
       lastFrame: 79
@@ -120,8 +120,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|correr
-      takeName: Armature|correr
+      name: Armature|Armature|correr
+      takeName: Armature|Armature|correr
       internalID: 7903033289915378785
       firstFrame: 0
       lastFrame: 12
@@ -149,8 +149,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Tpose
-      takeName: Armature|Tpose
+      name: Armature|Armature|Tpose
+      takeName: Armature|Armature|Tpose
       internalID: -6449298965521052693
       firstFrame: 0
       lastFrame: 1
@@ -178,11 +178,69 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|esperar
-      takeName: Armature|esperar
+      name: Armature|Armature|esperar
+      takeName: Armature|Armature|esperar
       internalID: -5721388440049113152
       firstFrame: 0
       lastFrame: 445
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|CaminarAbajo
+      takeName: Armature|CaminarAbajo
+      internalID: 76076793619656500
+      firstFrame: 0
+      lastFrame: 36
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|EsperarAbajo
+      takeName: Armature|EsperarAbajo
+      internalID: 3853857157805885024
+      firstFrame: 0
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
