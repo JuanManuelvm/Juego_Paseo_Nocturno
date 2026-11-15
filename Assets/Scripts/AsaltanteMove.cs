@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,28 +13,41 @@ public class EnemigoIAAvanzado : MonoBehaviour
     public float rangoDeteccion = 12f;
     public float anguloVision = 110f;
 
+    [Header("Patrullaje")]
+    public List<Transform> puntosPatrulla;
+    public float tiempoEsperaEnPunto = 2f;
+    public float velocidadPatrulla = 2f;      // <--- FALTA ESTA
+    public float velocidadPersecucion = 5.5f;
+    private int indicePuntoActual = 0;
+    private float temporizadorEspera = 0f;
+
     [Header("Ataque")]
     public float distanciaAtaque = 2f;
     private bool yaAtaco = false;
 
     [Header("Audio del Enemigo")]
     public AudioSource audioSource;
-    public AudioClip sonidoPasos;
+    public AudioClip sonidoPasosPatrulla;    // Audio suave de caminata
+    public AudioClip sonidoPasosPersecucion; // Audio pesado de carrera
+    public AudioClip sonidoGritoAlerta; // <--- Sonido al detectar al jugador
     public AudioClip sonidoAtaque;
 
     private NavMeshAgent agente;
     private Animator animator;
+    private bool yaGrito = false; // Control para no repetir el grito en bucle
 
     void Start()
     {
         agente = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
 
-        // Si no se asignó manualmente, buscar el AudioSource en este mismo objeto
         if (audioSource == null)
         {
             audioSource = GetComponent<AudioSource>();
         }
+
+        // Iniciar patrullaje al arrancar si hay puntos asignados
+        IrAlSiguientePuntoPatrulla();
     }
 
     void Update()
@@ -52,37 +66,94 @@ public class EnemigoIAAvanzado : MonoBehaviour
         }
         else
         {
-            QuedarseEnEspera();
+            Patrullar();
         }
 
-        // Actualizar parámetros de animación
+        // Actualizar animación según la velocidad real del NavMeshAgent
         if (animator != null && animator.runtimeAnimatorController != null)
         {
             animator.SetFloat("Velocidad", agente.velocity.magnitude);
         }
 
-        // Control del sonido de pasos según si se está moviendo o no
+        // Control del sonido de pasos según movimiento
         GestionarSonidoPasos();
+    }
+
+    void Patrullar()
+    {
+        if (yaGrito) yaGrito = false;
+
+        // Ajustar velocidad del NavMeshAgent a modo caminata
+        agente.speed = velocidadPatrulla;
+        agente.isStopped = false;
+
+        if (puntosPatrulla == null || puntosPatrulla.Count == 0) return;
+
+        if (!agente.pathPending && agente.remainingDistance <= agente.stoppingDistance)
+        {
+            temporizadorEspera += Time.deltaTime;
+            if (temporizadorEspera >= tiempoEsperaEnPunto)
+            {
+                IrAlSiguientePuntoPatrulla();
+                temporizadorEspera = 0f;
+            }
+        }
+    }
+
+    void IrAlSiguientePuntoPatrulla()
+    {
+        if (puntosPatrulla.Count == 0) return;
+
+        agente.destination = puntosPatrulla[indicePuntoActual].position;
+        indicePuntoActual = (indicePuntoActual + 1) % puntosPatrulla.Count;
+    }
+
+    void PerseguirJugador()
+    {
+        if (agente.isOnNavMesh)
+        {
+            agente.isStopped = false;
+            agente.speed = velocidadPersecucion; // Aumentar velocidad al perseguir
+            agente.SetDestination(jugador.position);
+        }
+
+        if (!yaGrito)
+        {
+            if (audioSource != null && sonidoGritoAlerta != null)
+            {
+                audioSource.PlayOneShot(sonidoGritoAlerta, 1.0f);
+            }
+            yaGrito = true;
+        }
     }
 
     void GestionarSonidoPasos()
     {
-        if (audioSource == null || sonidoPasos == null || yaAtaco) return;
+        if (audioSource == null || yaAtaco) return;
 
-        // Si el enemigo se está moviendo rápido y no está reproduciendo los pasos
-        if (agente.velocity.magnitude > 0.5f && !agente.isStopped)
+        bool estaEnMovimiento = agente.velocity.magnitude > 0.2f && !agente.isStopped;
+
+        if (estaEnMovimiento)
         {
-            if (!audioSource.isPlaying)
+            // Determinar qué clip le corresponde según el estado de alerta
+            AudioClip clipDeseado = yaGrito ? sonidoPasosPersecucion : sonidoPasosPatrulla;
+
+            if (clipDeseado != null)
             {
-                audioSource.clip = sonidoPasos;
-                audioSource.loop = true; // Repetir el bucle de pasos
-                audioSource.Play();
+                // Si cambió de estado (de patrulla a persecución) o no estaba sonando nada
+                if (!audioSource.isPlaying || audioSource.clip != clipDeseado)
+                {
+                    audioSource.clip = clipDeseado;
+                    audioSource.volume = yaGrito ? 0.8f : 0.4f;
+                    audioSource.loop = true;
+                    audioSource.Play();
+                }
             }
         }
         else
         {
-            // Si se detiene, pausar el sonido de pasos
-            if (audioSource.isPlaying && audioSource.clip == sonidoPasos)
+            // Detener sonido si se detiene en un punto de patrulla
+            if (audioSource.isPlaying && (audioSource.clip == sonidoPasosPatrulla || audioSource.clip == sonidoPasosPersecucion))
             {
                 audioSource.Stop();
             }
@@ -111,58 +182,29 @@ public class EnemigoIAAvanzado : MonoBehaviour
         return false;
     }
 
-    void PerseguirJugador()
-    {
-        if (agente.isOnNavMesh)
-        {
-            agente.isStopped = false;
-            agente.SetDestination(jugador.position);
-        }
-        if (MusicaAmbiente.Instance != null)
-        {
-            MusicaAmbiente.Instance.SetEstadoPersecucion(true);
-        }
-    }
-
-    void QuedarseEnEspera()
-    {
-        if (agente.isOnNavMesh)
-        {
-            agente.isStopped = true;
-        }
-        if (MusicaAmbiente.Instance != null)
-        {
-            MusicaAmbiente.Instance.SetEstadoPersecucion(false);
-        }
-    }
-
     void AtacarJugador()
     {
         if (yaAtaco) return;
 
         agente.isStopped = true;
-        
-        // Detener los pasos
+
         if (audioSource != null && audioSource.isPlaying)
         {
             audioSource.Stop();
         }
 
-        // Orientar hacia el jugador
         Vector3 direccion = (jugador.position - transform.position).normalized;
         direccion.y = 0;
         transform.rotation = Quaternion.LookRotation(direccion);
 
-        // Disparar animación
         if (animator != null)
         {
             animator.SetTrigger("Atacar");
         }
 
-        // Reproducir sonido de ataque (un solo disparo)
         if (audioSource != null && sonidoAtaque != null)
         {
-            audioSource.PlayOneShot(sonidoAtaque);
+            audioSource.PlayOneShot(sonidoAtaque, 1.0f);
         }
 
         yaAtaco = true;
