@@ -9,6 +9,13 @@ public class ControlesJugador : MonoBehaviour
     public float velocidadCorriendo = 8.5f;
     public float gravedad = -9.81f;
 
+    [Header("Sistema de Estamina")]
+    public float estaminaMaxima = 100f;
+    public float estaminaActual;
+    public float consumoEstamina = 20f;     // Estamina consumida por segundo al correr
+    public float recargaEstamina = 15f;     // Estamina regenerada por segundo al no correr
+    private bool exhausto = false;           // Bloquea la carrera hasta recargar un mínimo
+
     [Header("Cámara y Ratón")]
     public Transform camaraJugador;
     public float sensibilidadRaton = 0.1f;
@@ -20,19 +27,22 @@ public class ControlesJugador : MonoBehaviour
 
     [Header("Audio SFX")]
     public AudioSource audioSource;
+    public AudioSource audioSourceRespiracion; // AudioSource secundario exclusivo para la respiración/cansancio
     public AudioClip sonidoPasosCaminar;
     public AudioClip sonidoPasosCorrer;
     public AudioClip sonidoLinterna;
+    public AudioClip sonidoCansado;           // Clip de respiración fatigada en bucle
 
     private CharacterController characterController;
     private float rotacionX = 0f;
-    private bool linternaEncendida = false;
+    private bool linternaEncendida = true;
     private float velocidadY = 0f;
 
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
         if (audioSource == null) audioSource = GetComponent<AudioSource>();
+        estaminaActual = estaminaMaxima;
     }
 
     private void Start()
@@ -46,7 +56,7 @@ public class ControlesJugador : MonoBehaviour
         if (luzLinterna != null) luzLinterna.enabled = linternaEncendida;
         if (animator != null) animator.SetBool("IsFlashlightOn", linternaEncendida);
     }
-    
+
     private void Update()
     {
         Look();
@@ -87,14 +97,44 @@ public class ControlesJugador : MonoBehaviour
 
         Vector3 moveInput = new Vector3(moveX, 0f, moveZ);
         bool estaMoviendose = moveInput.sqrMagnitude > 0.01f;
-        bool estaCorriendo = estaMoviendose && (keyboard.leftShiftKey.isPressed || keyboard.rightShiftKey.isPressed);
+        bool intentaCorrer = keyboard.leftShiftKey.isPressed || keyboard.rightShiftKey.isPressed;
+
+        // Gestión del estado de Agotamiento (Exhausto)
+        if (estaminaActual <= 0f)
+        {
+            exhausto = true;
+        }
+        else if (estaminaActual >= 25f) // Debe recuperar al menos el 25% para volver a correr
+        {
+            exhausto = false;
+        }
+
+        // Solo puede correr si se está moviendo, presiona Shift y NO está exhausto
+        bool estaCorriendo = estaMoviendose && intentaCorrer && !exhausto;
+
+        // Consumo y Regeneración de Estamina
+        if (estaCorriendo)
+        {
+            estaminaActual -= consumoEstamina * Time.deltaTime;
+            estaminaActual = Mathf.Clamp(estaminaActual, 0f, estaminaMaxima);
+        }
+        else
+        {
+            if (estaminaActual < estaminaMaxima)
+            {
+                estaminaActual += recargaEstamina * Time.deltaTime;
+                estaminaActual = Mathf.Clamp(estaminaActual, 0f, estaminaMaxima);
+            }
+        }
+
+        // Control del sonido de cansancio/respiración agitada
+        GestionarSonidoCansancio();
 
         if (moveInput.magnitude > 1f) moveInput.Normalize();
 
         float velocidadActual = estaCorriendo ? velocidadCorriendo : velocidadCaminando;
         Vector3 movimientoHorizontal = transform.TransformDirection(moveInput) * velocidadActual;
 
-        // Gravedad constante para mantener isGrounded en true
         if (characterController.isGrounded && velocidadY < 0)
         {
             velocidadY = -2f;
@@ -110,15 +150,14 @@ public class ControlesJugador : MonoBehaviour
             animator.SetBool("IsSprinting", estaCorriendo);
         }
 
-        // Manejo Directo de Pistas Largas de Audio
-        if (estaMoviendose)
+        // Audio de Pasos
+        if (estaMoviendose && characterController.isGrounded)
         {
             AudioClip clipDeseado = estaCorriendo ? sonidoPasosCorrer : sonidoPasosCaminar;
             float volumenDeseado = estaCorriendo ? 0.45f : 0.25f;
 
             if (audioSource != null && clipDeseado != null)
             {
-                // Si cambió el estado o el audio no está sonando actualmente
                 if (!audioSource.isPlaying || audioSource.clip != clipDeseado)
                 {
                     audioSource.clip = clipDeseado;
@@ -130,12 +169,37 @@ public class ControlesJugador : MonoBehaviour
         }
         else
         {
-            // Al detenerse: silenciar la pista larga inmediatamente
             if (audioSource != null && audioSource.isPlaying && 
-            (audioSource.clip == sonidoPasosCaminar || audioSource.clip == sonidoPasosCorrer))
+               (audioSource.clip == sonidoPasosCaminar || audioSource.clip == sonidoPasosCorrer))
             {
                 audioSource.Stop();
                 audioSource.loop = false;
+            }
+        }
+    }
+
+    private void GestionarSonidoCansancio()
+    {
+        if (audioSourceRespiracion == null || sonidoCansado == null) return;
+
+        // Sonar agitado si está exhausto o le queda menos del 30% de estamina
+        bool debeSonarCansado = exhausto || (estaminaActual < (estaminaMaxima * 0.3f));
+
+        if (debeSonarCansado)
+        {
+            if (!audioSourceRespiracion.isPlaying)
+            {
+                audioSourceRespiracion.clip = sonidoCansado;
+                audioSourceRespiracion.loop = true;
+                audioSourceRespiracion.volume = 0.6f;
+                audioSourceRespiracion.Play();
+            }
+        }
+        else
+        {
+            if (audioSourceRespiracion.isPlaying)
+            {
+                audioSourceRespiracion.Stop();
             }
         }
     }
@@ -148,12 +212,9 @@ public class ControlesJugador : MonoBehaviour
         if (keyboard.fKey.wasPressedThisFrame)
         {
             linternaEncendida = !linternaEncendida;
-
             if (luzLinterna != null) luzLinterna.enabled = linternaEncendida;
-
             if (animator != null) animator.SetBool("IsFlashlightOn", linternaEncendida);
 
-            // Sonido de clic
             if (sonidoLinterna != null && audioSource != null)
             {
                 audioSource.PlayOneShot(sonidoLinterna);
