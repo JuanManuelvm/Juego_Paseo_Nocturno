@@ -12,12 +12,27 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Ch06_body.001
+    second: {fileID: 2100000, guid: b84c528d77f1b9044a00611b9f9528d1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Ch06_body1
     second: {fileID: 2100000, guid: 9b0b0865b9bc3b7489c05c5075b5a5a9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Ch06_body1.001
+    second: {fileID: 2100000, guid: 9b0b0865b9bc3b7489c05c5075b5a5a9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Ch06_eyelashes
+    second: {fileID: 2100000, guid: 45b5b5645726a184ebcc6e7ee7cc1cd3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ch06_eyelashes.001
     second: {fileID: 2100000, guid: 45b5b5645726a184ebcc6e7ee7cc1cd3, type: 2}
   materials:
     materialImportMode: 2
