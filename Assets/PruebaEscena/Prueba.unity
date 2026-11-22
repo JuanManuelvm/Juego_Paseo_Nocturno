@@ -8,8 +8,8 @@ OcclusionCullingSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+  m_SceneGUID: 983e0b24877703041981adf98b7ec1f6
+  m_OcclusionCullingData: {fileID: 36300000, guid: eb686b11491cf1543a5ab3e82374f598, type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -166,7 +166,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7315795
 Transform:
@@ -432,6 +432,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
       propertyPath: m_Name
       value: Cerca (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -759,6 +763,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1026,6 +1034,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (56)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1217,6 +1229,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Faro (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1ea0af2103c0ee452ad1f91be1f75653, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1296,6 +1312,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
       propertyPath: m_Name
       value: Cerca (54)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1405,6 +1425,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1ea0af2103c0ee452ad1f91be1f75653, type: 3}
       propertyPath: m_Name
       value: Faro (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1ea0af2103c0ee452ad1f91be1f75653, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1821,6 +1845,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1845,7 +1873,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &223562238
 Transform:
@@ -2020,6 +2048,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (55)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2096,6 +2128,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
       propertyPath: m_Name
       value: Cerca (36)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2350,7 +2386,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &317613922
 Transform:
@@ -2524,6 +2560,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
       propertyPath: m_Name
       value: Cerca (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3311,6 +3351,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (63)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3729,6 +3773,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3893,6 +3941,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (53)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3960,6 +4012,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1ea0af2103c0ee452ad1f91be1f75653, type: 3}
       propertyPath: m_Name
       value: Faro (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1ea0af2103c0ee452ad1f91be1f75653, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4036,6 +4092,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (35)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4108,6 +4168,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (48)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4179,6 +4243,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
       propertyPath: m_Name
       value: Cerca (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4365,6 +4433,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (67)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4493,6 +4565,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1ea0af2103c0ee452ad1f91be1f75653, type: 3}
       propertyPath: m_Name
       value: Faro (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1ea0af2103c0ee452ad1f91be1f75653, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4634,6 +4710,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
       propertyPath: m_Name
       value: Cerca (62)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5628,6 +5708,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
       propertyPath: m_Name
       value: Cerca (49)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6677,6 +6761,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Faro (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1ea0af2103c0ee452ad1f91be1f75653, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -6919,6 +7007,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
       propertyPath: m_Name
       value: Cerca (46)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7798,6 +7890,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (43)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7931,6 +8027,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8002,6 +8102,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
       propertyPath: m_Name
       value: Cerca (45)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8105,6 +8209,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
       propertyPath: m_Name
       value: Cerca (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8654,6 +8762,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8725,6 +8837,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
       propertyPath: m_Name
       value: Cerca (47)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9112,6 +9228,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Faro (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1ea0af2103c0ee452ad1f91be1f75653, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -9139,7 +9259,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1035222960
 Transform:
@@ -9727,7 +9847,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1105516672
 Transform:
@@ -10020,6 +10140,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10235,6 +10359,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (50)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10412,7 +10540,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1168940184
 Transform:
@@ -10696,6 +10824,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10767,6 +10899,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
       propertyPath: m_Name
       value: Cerca (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10840,6 +10976,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10907,6 +11047,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1ea0af2103c0ee452ad1f91be1f75653, type: 3}
       propertyPath: m_Name
       value: Faro (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1ea0af2103c0ee452ad1f91be1f75653, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11080,6 +11224,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11244,6 +11392,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11399,7 +11551,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1272758173
 Transform:
@@ -11635,6 +11787,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (59)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11773,6 +11929,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (64)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11875,6 +12035,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
       propertyPath: m_Name
       value: Cerca (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12039,6 +12203,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
       propertyPath: m_Name
       value: Cerca (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12360,6 +12528,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (40)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12523,6 +12695,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
       propertyPath: m_Name
       value: Cerca (69)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12767,7 +12943,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1416761875
 Transform:
@@ -12942,6 +13118,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (57)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13093,6 +13273,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
       propertyPath: m_Name
       value: Cerca (58)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13422,6 +13606,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (68)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13446,7 +13634,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1456120422
 Transform:
@@ -13955,6 +14143,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14350,6 +14542,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (52)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14662,6 +14858,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Faro (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1ea0af2103c0ee452ad1f91be1f75653, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -14791,7 +14991,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1562061392
 Transform:
@@ -14997,6 +15197,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (60)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15073,6 +15277,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
       propertyPath: m_Name
       value: Cerca (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15320,6 +15528,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15423,6 +15635,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15500,6 +15716,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15524,7 +15744,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1637982556
 Transform:
@@ -15760,6 +15980,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15827,6 +16051,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1ea0af2103c0ee452ad1f91be1f75653, type: 3}
       propertyPath: m_Name
       value: Faro (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1ea0af2103c0ee452ad1f91be1f75653, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16024,6 +16252,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
       propertyPath: m_Name
       value: Cerca (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16470,6 +16702,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Faro (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1ea0af2103c0ee452ad1f91be1f75653, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -16570,15 +16806,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1733133248}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.71366864, z: -0, w: 0.7004835}
-  m_LocalPosition: {x: -54.83, y: 0.07000005, z: -67.52}
+  m_LocalRotation: {x: -0, y: -0.026886728, z: -0, w: 0.99963856}
+  m_LocalPosition: {x: -30.8, y: 0.07000005, z: -67.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 330585546}
   - {fileID: 1603861686}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -91.068, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -3.081, z: 0}
 --- !u!82 &1733133252
 AudioSource:
   m_ObjectHideFlags: 0
@@ -17001,6 +17237,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17025,7 +17265,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1762785400
 Transform:
@@ -17338,6 +17578,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Faro (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1ea0af2103c0ee452ad1f91be1f75653, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -17412,6 +17656,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
       propertyPath: m_Name
       value: Cerca (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17572,6 +17820,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1ea0af2103c0ee452ad1f91be1f75653, type: 3}
       propertyPath: m_Name
       value: Faro (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1ea0af2103c0ee452ad1f91be1f75653, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17892,6 +18144,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Faro
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1ea0af2103c0ee452ad1f91be1f75653, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -17966,6 +18222,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
       propertyPath: m_Name
       value: Cerca (61)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18101,6 +18361,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (39)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18177,6 +18441,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
       propertyPath: m_Name
       value: Cerca (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18322,6 +18590,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18372,7 +18644,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1964235939
 Transform:
@@ -18826,7 +19098,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2009307377
 Transform:
@@ -19114,6 +19386,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19369,6 +19645,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19502,6 +19782,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
       propertyPath: m_Name
       value: Cerca (66)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19798,7 +20082,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2059173528
 Transform:
@@ -19969,6 +20253,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Faro (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1ea0af2103c0ee452ad1f91be1f75653, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -20082,6 +20370,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
       propertyPath: m_Name
       value: Cerca (41)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20338,6 +20630,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerca (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b258c188b15dfb844941854fcc565986, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20436,6 +20732,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1ea0af2103c0ee452ad1f91be1f75653, type: 3}
       propertyPath: m_Name
       value: Faro (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1ea0af2103c0ee452ad1f91be1f75653, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
